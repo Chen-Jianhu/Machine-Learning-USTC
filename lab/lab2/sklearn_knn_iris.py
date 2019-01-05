@@ -1,6 +1,10 @@
-# iris.py
-# 实现KNN算法
-# by jhchen
+# -*- coding: utf-8 -*-
+# @File     : paint_tree.py
+# @Author   : jianhuChen
+# @Date     : 2018-12-29 14:19:07
+# @License  : Copyright(C), USTC
+# @Last Modified by  : jianhuChen
+# @Last Modified time: 2018-12-29 14:44:07
 
 import numpy as np
 from sklearn import neighbors

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
-# @File 	: perceptron.py
+# @File 	: perceptron_sklearn.py
 # @Author 	: jianhuChen
 # @Date 	: 2018-12-23 17:30:37
 # @License 	: Copyright(C), USTC
 # @Last Modified by  : jianhuChen
-# @Last Modified time: 2018-12-23 20:02:44
+# @Last Modified time: 2018-12-29 12:29:17
 
 from sklearn.preprocessing import StandardScaler
 from sklearn import neighbors

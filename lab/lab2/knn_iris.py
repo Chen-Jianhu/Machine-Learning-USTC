@@ -4,7 +4,7 @@
 # @Date 	: 2018-12-23 08:36:26
 # @License 	: Copyright(C), USTC
 # @Last Modified by  : jianhuChen
-# @Last Modified time: 2018-12-23 19:29:33
+# @Last Modified time: 2018-12-29 12:29:17
 
 import numpy as np
 from sklearn import datasets
@@ -100,12 +100,13 @@ def main():
 	iris = datasets.load_iris()
 
 	X, y = iris.data, iris.target
-	X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, shuffle=True)
-	clf = KNN(k=5)
-	y_pred = clf.predict(X_test, X_train, y_train)
+	print(y)
+	# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.33, shuffle=True)
+	# clf = KNN(k=5)
+	# y_pred = clf.predict(X_test, X_train, y_train)
 	
-	accu = accuracy(y_test, y_pred)
-	print ("Accuracy:", accu)
+	# accu = accuracy(y_test, y_pred)
+	# print ("Accuracy:", accu)
 
 
 if __name__ == "__main__":
