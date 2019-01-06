@@ -130,7 +130,7 @@ Total nSV = 157
 Accuracy = 99.7683% (861/863) (classification)
 ```
 
-![1546743487454](/home/jhchen/Desktop/Machine-Learning-USTC/lab/lab4/1546743487454.png)
+![1546743487454](1546743487454.png)
 
 
 
