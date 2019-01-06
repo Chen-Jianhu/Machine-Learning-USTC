@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 # @File     : paint_tree.py
-# @Author   : jianhuChen
+# @Author   : https://blog.csdn.net/moxigandashu/article/details/71305273?locationNum=9&fps=1
 # @Date     : 2018-12-29 14:19:07
 # @License  : Copyright(C), USTC
 # @Last Modified by  : jianhuChen
-# @Last Modified time: 2019-01-05 15:52:50
-# @Reference: https://blog.csdn.net/moxigandashu/article/details/71305273?locationNum=9&fps=1
+# @Last Modified time: 2019-01-06 11:17:47
 
 import matplotlib.pyplot as plt
 from pylab import mpl # 画图需要
