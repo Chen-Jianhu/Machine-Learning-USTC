@@ -1,6 +1,6 @@
 ## 线性SVM分类器
 
-- 首先在matlab中切换到LIBSVM库文件目录，执行`make`
+- 首先在matlab中切换到`libsvm-3.22/matlab`目录下，执行`make`
 
 - 再将数据集`ex7Data.zip`解压后放到`libsvm-3.22/matlab`目录下
 
@@ -229,9 +229,29 @@ model = svmtrain(train_y, train_x, sprintf('-s 0 -t 2 -g %g', gamma));
 
 ### 运行结果
 
+```matlab
+.*
+optimization finished, #iter = 116
+nu = 0.905697
+obj = -30.401250, rho = 0.100122
+nSV = 65, nBSV = 21
+.*
+optimization finished, #iter = 137
+nu = 0.844392
+obj = -32.280483, rho = 0.210844
+nSV = 71, nBSV = 27
+.*
+optimization finished, #iter = 115
+nu = 0.908189
+obj = -35.049174, rho = 0.115328
+nSV = 73, nBSV = 27
+Total nSV = 105
+Accuracy = 40% (18/45) (classification)
+```
 
-
-
+> 测试集正确率好低，可能需要调参数
+>
+> 训练集正确率100%
 
 
 
