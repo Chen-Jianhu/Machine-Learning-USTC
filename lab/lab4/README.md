@@ -103,18 +103,42 @@ Accuracy = 75.3846% (196/260) (classification)
 ### 实验代码
 
 ```matlab
-clear all; close all; clc
-% Load training features and labels[y, x] = libsvmread('ex8a.txt');
+% ex8a.txt ============================================================
+% Load training features and labels
+[y, x] = libsvmread('ex8Data/ex8a.txt');
 gamma = 100;
+
 % Libsvm options
 % -s 0 : classification
 % -t 2 : RBF kernel
 % -g : gamma in the RBF kernel
 model = svmtrain(y, x, sprintf('-s 0 -t 2 -g %g', gamma));
-% Display training accuracy[predicted_label, accuracy, decision_values] = svmpredict(y, x, model);
+
+% Display training accuracy
+[predicted_label, accuracy, decision_values] = svmpredict(y, x, model);
+
 % Plot training data and decision boundary
 plotboundary(y, x, model);
 title(sprintf('\\gamma = %g', gamma), 'FontSize', 14);
+
+% ex8b.txt ============================================================
+% Load training features and labels
+[y, x] = libsvmread('ex8Data/ex8b.txt');
+gamma = 100;
+
+% Libsvm options
+% -s 0 : classification
+% -t 2 : RBF kernel
+% -g : gamma in the RBF kernel
+model = svmtrain(y, x, sprintf('-s 0 -t 2 -g %g', gamma));
+
+% Display training accuracy
+[predicted_label, accuracy, decision_values] = svmpredict(y, x, model);
+
+% Plot training data and decision boundary
+plotboundary(y, x, model);
+title(sprintf('\\gamma = %g', gamma), 'FontSize', 14);
+
 ```
 
 
@@ -122,17 +146,25 @@ title(sprintf('\\gamma = %g', gamma), 'FontSize', 14);
 ### 运行结果
 
 ```matlab
+*
 optimization finished, #iter = 344
 nu = 0.150603
 obj = -83.411415, rho = -0.202927
 nSV = 157, nBSV = 107
 Total nSV = 157
 Accuracy = 99.7683% (861/863) (classification)
+.*..*
+optimization finished, #iter = 682
+nu = 0.348952
+obj = -51.283399, rho = -0.003248
+nSV = 128, nBSV = 38
+Total nSV = 128
+Accuracy = 94.3128% (199/211) (classification)
 ```
 
 ![1546743487454](1546743487454.png)
 
-
+![1546833285739](/home/jhchen/Desktop/Machine-Learning-USTC/lab/lab4/1546833285739.png)
 
 ## Iris 数据集
 
@@ -203,10 +235,12 @@ if __name__ == '__main__':
 ### 实验代码
 
 ```matlab
+function svm_iris()
+  
 % Load training features and labels
 [ train_y , train_x ] = libsvmread ( 'iris_data_train.txt' );
 
-gamma = 100;
+gamma = 1;
 
 % Libsvm options
 % -s 0 : classification
@@ -223,6 +257,29 @@ model = svmtrain(train_y, train_x, sprintf('-s 0 -t 2 -g %g', gamma));
 % Plot training data and decision boundary
 % plotboundary(y, x, model);
 % title(sprintf('\\gamma = %g', gamma), 'FontSize', 14);
+% =======================================================================
+
+% Load training features and labels
+[ train_y , train_x ] = libsvmread ( 'iris_data_train.txt' );
+
+% Train the model and get the primal variables w, b from the model
+% Libsvm options
+% -t 0 : linear kernel
+% Leave other options as their defaults
+% model = svmtrain(train_y, train_x, '-t 0');
+% w = model.SVs' * model.sv_coef;
+% b = -model.rho;
+% if (model.Label(1) == -1)
+% w = -w; b = -b;
+% end
+model = svmtrain ( train_y , train_x , sprintf ( '-s 0 -t 0' ));
+
+% Load testing features and labels
+[ test_y , test_x ] = libsvmread ( 'iris_data_test.txt' );
+[ predicted_label , accuracy , decision_values ] = svmpredict ( test_y , test_x , model );
+
+% After running svmpredict, the accuracy should be printed to the matlab
+% console
 ```
 
 
@@ -230,28 +287,22 @@ model = svmtrain(train_y, train_x, sprintf('-s 0 -t 2 -g %g', gamma));
 ### 运行结果
 
 ```matlab
-.*
-optimization finished, #iter = 116
-nu = 0.905697
-obj = -30.401250, rho = 0.100122
-nSV = 65, nBSV = 21
-.*
-optimization finished, #iter = 137
-nu = 0.844392
-obj = -32.280483, rho = 0.210844
-nSV = 71, nBSV = 27
-.*
-optimization finished, #iter = 115
-nu = 0.908189
-obj = -35.049174, rho = 0.115328
-nSV = 73, nBSV = 27
-Total nSV = 105
-Accuracy = 40% (18/45) (classification)
+optimization finished, #iter = 49
+nu = 0.254090
+obj = -12.600064, rho = 0.185561
+nSV = 26, nBSV = 12
+Total nSV = 39
+Accuracy = 95.6522% (44/46) (classification)
+
+optimization finished, #iter = 34
+nu = 0.215099
+obj = -11.514963, rho = -6.677212
+nSV = 18, nBSV = 14
+Total nSV = 21
+Accuracy = 100% (46/46) (classification)
 ```
 
-> 测试集正确率好低，可能需要调参数
->
-> 训练集正确率100%
+> 调整参数 gamma=1 正确率会提高
 
 
 
