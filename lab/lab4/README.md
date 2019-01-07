@@ -164,7 +164,7 @@ Accuracy = 94.3128% (199/211) (classification)
 
 ![1546743487454](1546743487454.png)
 
-![1546833285739](/home/jhchen/Desktop/Machine-Learning-USTC/lab/lab4/1546833285739.png)
+![1546833285739](1546833285739.png)
 
 ## Iris 数据集
 
