@@ -76,7 +76,7 @@ p_label, p_acc, p_val = svm_predict(test_y, test_x, model)
 
 > '-c 4'表示`cost`的选择
 >
-> 具体参数表示的意义：（摘自库文件`svmuti.pyl`）
+> 具体参数表示的意义：（摘自库文件`svmuti.py`）
 >
 > ```python
 > '''

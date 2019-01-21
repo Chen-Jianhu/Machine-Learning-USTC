@@ -4,7 +4,7 @@
 # @Date 	: 2019-01-07 12:30:07
 # @License 	: Copyright(C), USTC
 # @Last Modified by  : jianhuChen
-# @Last Modified time: 2019-01-07 12:52:11
+# @Last Modified time: 2019-01-13 18:45:29
 
 from svmutil import *
 
@@ -19,7 +19,7 @@ y, x = svm_read_problem('ex8Data/ex8a.txt')
 split_num = int(len(y)*0.66)
 prob  = svm_problem(y[:split_num], x[:split_num], isKernel=True)
 
-# 设置参数：多分类+高斯卷积核 gamma=650
+# 设置参数：多分类+高斯核 gamma=650
 param = svm_parameter('-s 0 -t 2 -g 650')
 model = svm_train(prob, param)
 
